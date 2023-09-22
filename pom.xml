@@ -22,7 +22,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>dev-toolbox-gui-util-fxml</artifactId>
-  <version>0.5.0</version>
+  <version>0.5.1-SNAPSHOT</version>
 
   <parent>
     <groupId>org.dev-toolbox</groupId>
@@ -33,7 +33,7 @@
   <url>https://github.com/javarno/${project.artifactId}</url>
   <scm>
     <connection>scm:git:https://github.com/javarno/${project.artifactId}.git</connection>
-    <tag>v0.5.0</tag>
+    <tag>v0.4.1</tag>
   </scm>
 
   <dependencies>
