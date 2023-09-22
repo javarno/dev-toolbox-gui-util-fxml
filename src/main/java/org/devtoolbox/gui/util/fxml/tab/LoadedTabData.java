@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright © 2020 dev-toolbox.org
+ * Copyright © 2020-2023 dev-toolbox.org
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"),
  * to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -14,7 +14,9 @@
  * DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
  * USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package org.devtoolbox.gui.util.tab;
+package org.devtoolbox.gui.util.fxml.tab;
+
+import java.util.function.Consumer;
 
 import javafx.scene.control.Tab;
 
@@ -22,25 +24,15 @@ import javafx.scene.control.Tab;
 /**
  * @author Arnaud Lecollaire
  */
-public class LoadedTabData<ControllerType> {
+public record LoadedTabData<ControllerType>(Tab tab, ControllerType controller) {
 
-    private final Tab tab;
+	public LoadedTabData<ControllerType> useTab(Consumer<Tab> tabConsumer) {
+		tabConsumer.accept(tab);
+		return this;
+	}
 
-    private final ControllerType controller;
-
-
-    public LoadedTabData(final Tab tab, final ControllerType controller) {
-        super();
-
-        this.tab = tab;
-        this.controller = controller;
-    }
-
-    public Tab getTab() {
-        return tab;
-    }
-
-    public ControllerType getController() {
-        return controller;
-    }
+	public LoadedTabData<ControllerType> useController(Consumer<ControllerType> controllerConsumer) {
+		controllerConsumer.accept(controller);
+		return this;
+	}
 }

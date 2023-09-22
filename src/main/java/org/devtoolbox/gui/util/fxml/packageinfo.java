@@ -16,18 +16,8 @@
  */
 
 /**
+ * Utility classes to make fxml utilization easier.
+ *
  * @author Arnaud Lecollaire
  */
-module org.devtoolbox.gui.util.fxml {
-
-    exports org.devtoolbox.gui.util.fxml;
-    exports org.devtoolbox.gui.util.fxml.tab;
-
-    requires javafx.base;
-    requires transitive javafx.controls;
-    requires javafx.fxml;
-    requires javafx.graphics;
-
-    requires org.slf4j;
-
-}
+package org.devtoolbox.gui.util.fxml;
